@@ -18,4 +18,5 @@ jobs:
       env:
         TOKEN: ${{secrets.TOKEN}}
       run: | 
+        conda init bash
         bash create-gh-yaml.sh
