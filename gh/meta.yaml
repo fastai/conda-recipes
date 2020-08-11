@@ -1,42 +1,27 @@
-{% set name = "gh" %}
-{% set version = "0.11.1" %}
-
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: gh
+  version: 0.11.1
 
-source:
-  url: https://github.com/cli/cli/releases/download/v{{ version }}/gh_{{ version }}_linux_amd64.tar.gz # [linux64]
+source: 
+  url: https://github.com/cli/cli/releases/download/v0.11.1/gh_0.11.1_linux_amd64.tar.gz # [linux64]
   sha256: c9d652852841557652a336a064468c31593a3a1f9537ee0f4d2a9c2351166193 # [linux64]
-  url: https://github.com/cli/cli/releases/download/v{{ version }}/gh_{{ version }}_linux_386.tar.gz # [linux32]
+  url: https://github.com/cli/cli/releases/download/v0.11.1/gh_0.11.1_linux_386.tar.gz # [linux32]
   sha256: d965cfe7e3fa6e3695a5ff3390af270c941d2b01d32372efd6a111f38764eaee # [linux32]
-  url: https://github.com/cli/cli/releases/download/v{{ version }}/gh_{{ version }}_macOS_amd64.tar.gz # [osx]
+  url: https://github.com/cli/cli/releases/download/v0.11.1/gh_0.11.1_macOS_amd64.tar.gz # [osx]
   sha256: 6634c0cce8eba7a3d394d90cec5af99f79c815704adf3cde81ea7394ce0fb440 # [osx]
-
-build:
-  number: 0
-  binary_relocation: False
-  script: cp -r bin share $PREFIX/
-
-test:
-  commands:
-    - gh --help
-
 about:
-  home: https://github.com/cli/cli
-  license: MIT
-  license_family: MIT
-  license_file: LICENSE
-  summary: 'GitHub\’s official command line tool'
-
-  # The remaining entries in this section are optional, but recommended.
-  description: |
-    gh is GitHub on the command line, and it's now available in beta. It brings
-    pull requests, issues, and other GitHub concepts to the terminal next to
-    where you are already working with git and your code.
-  doc_url: https://github.com/cli/cli
   dev_url: https://github.com/cli/cli
-
+  doc_url: https://github.com/cli/cli
+  home: https://github.com/cli/cli
+  license: MIT License
+  license_family: MIT
+build:
+  binary_relocation: false
+  number: 0
+  script: cp -r bin share $PREFIX/
 extra:
   recipe-maintainers:
-    - jph00
+  - jph00
+test:
+  commands:
+  - gh --help

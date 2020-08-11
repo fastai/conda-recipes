@@ -1,3 +1,4 @@
+*.swp
 build/
 
 # Byte-compiled / optimized / DLL files
