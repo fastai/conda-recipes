@@ -1,8 +1,11 @@
 from requests import get
 from hashlib import sha256
 import yaml
+from pathlib import Path
 
 org,repo,name,user = 'cli','cli','gh','jph00'
+path = Path(name)
+path.mkdir(exist_ok=True)
 
 repo_d = get(f'https://api.github.com/repos/{org}/{repo}').json()
 desc,url = repo_d['description'],repo_d['html_url']
@@ -45,7 +48,7 @@ d2 = {
 }
 
 yaml.SafeDumper.ignore_aliases = lambda *args : True
-with open(f'{name}/meta.yaml','w') as f:
+with (path/'meta.yaml').open('w') as f:
     f.write(d1)
     yaml.safe_dump(d2, f)
 
