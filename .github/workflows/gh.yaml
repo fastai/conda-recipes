@@ -14,8 +14,8 @@ jobs:
     steps:
     - name: Copy Repository Contents
       uses: actions/checkout@master
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v2
     - name: Build packages
+      env:
+        TOKEN: ${{secrets.TOKEN}}
       run: | 
-        echo "do something here"
+        bash create-gh-yaml.sh
