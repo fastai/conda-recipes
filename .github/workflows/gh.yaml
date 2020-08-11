@@ -1,0 +1,19 @@
+name: GH-CLI
+on:
+  schedule:
+    cron:
+      - cron: '1 6 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:     
+  build-package:
+    container: continuumio/anaconda3
+    steps:
+    - name: Copy Repository Contents
+      uses: actions/checkout@master
+    - name: Build packages
+      run: | 
+        echo "do something here"
