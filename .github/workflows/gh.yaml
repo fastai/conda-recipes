@@ -16,6 +16,6 @@ jobs:
       uses: actions/checkout@master
     - name: Build packages
       env:
-        TOKEN: ${{secrets.TOKEN}}
+        TOKEN: ${{secrets.ANACONDA_TOKEN}}
       run: | 
         bash create-gh-yaml.sh
