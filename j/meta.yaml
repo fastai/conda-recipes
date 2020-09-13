@@ -1,0 +1,31 @@
+package:
+  name: jlang
+  version: 9.01
+
+source:
+  url: https://files.fast.ai/files/j901-linux.tgz # [linux]
+  sha256: 120a0c696c1ce3bc8336c4a0be8832900fa3a0f0fc1b80a66d47c4ed27814933 # [linux]
+  url: https://files.fast.ai/files/j901-mac.tgz # [osx]
+  sha256: e217ea67f90a8d11915b287db972af3dd378f1b6a4fabcaeae71ae47c92035dc # [osx]
+about:
+  dev_url: https://github.com/jsoftware/jsource
+  doc_url: https://github.com/jsoftware/jsource
+  home: https://github.com/jsoftware/jsource
+  license: GPL3
+  license_family: GPL3
+build:
+  binary_relocation: false
+  number: 0
+  script: 'mkdir -p $PREFIX/share/j901
+
+    mkdir $PREFIX/bin
+
+    mv * $PREFIX/share/j901
+
+    ln -s $PREFIX/share/j901/bin/jconsole $PREFIX/bin/'
+extra:
+  recipe-maintainers:
+  - jph00
+test:
+  commands:
+  - jconsole -js "exit 0"
