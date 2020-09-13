@@ -16,16 +16,6 @@ about:
 build:
   binary_relocation: false
   number: 0
-  script: 'mkdir -p $PREFIX/share/j901
-
-    mkdir $PREFIX/bin
-
-    mv * $PREFIX/share/j901
-
-    ln -s $PREFIX/share/j901/bin/jconsole $PREFIX/bin/'
 extra:
-  recipe-maintainers:
-  - jph00
-test:
-  commands:
-  - jconsole -js "exit 0"
+  recipe-maintainers: [ "jph00" ]
+
