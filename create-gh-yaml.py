@@ -10,7 +10,7 @@ path.mkdir(exist_ok=True)
 repo_d = get(f'https://api.github.com/repos/{org}/{repo}').json()
 desc,url = repo_d['description'],repo_d['html_url']
 rels = get(f'https://api.github.com/repos/{org}/{repo}/releases/latest').json()
-ver = rels['name'][1:]
+ver = rels['tag_name'][1:]
 
 rels_d = dict(linux64 = 'linux_amd64',
               linux32 = 'linux_386',
